@@ -201,13 +201,25 @@ async function loadAll() {
   setSyncing(true);
   try {
     const categorias = await fetchAllCategories();
+
+    // Debug: ver qué devuelve GAS exactamente
+    console.log("[loadAll] categorias recibidas:", categorias?.length, categorias);
+
+    if (!Array.isArray(categorias)) {
+      throw new Error("La respuesta no contiene un array de categorías. Respuesta: " + JSON.stringify(categorias));
+    }
+
     // Mapear respuesta de AppScript → formato interno
+    // Mapear por índice: evita que el match por sheetName falle si Google Sheets
+    // trunca o escapa los caracteres especiales del nombre (||, iconos, colores).
     cats  = categorias.map(mapSheetCat);
-    items = categorias.flatMap((c) => mapSheetItems(c, cats));
+    items = categorias.flatMap((sheetCat, i) => mapSheetItemsById(sheetCat, cats[i]));
+
+    console.log("[loadAll] cats:", cats.length, "items:", items.length);
     setSyncing(false);
   } catch (err) {
     setSyncing(false, err.message);
-    console.error("loadAll:", err);
+    console.error("[loadAll] ERROR:", err);
   }
   render();
 }
@@ -245,26 +257,83 @@ function mapSheetCat(sheetCat) {
  * Convierte las filas de datos de una categoría en ítems internos.
  */
 function mapSheetItems(sheetCat, mappedCats) {
-  const cat   = mappedCats.find((c) => c.sheetName === sheetCat.categoria);
+  const cat = mappedCats.find((c) => c.sheetName === sheetCat.categoria);
   if (!cat) return [];
-  return (sheetCat.datos || []).map((row) => ({
-    id:         row["id"]       || uid(),
-    catId:      cat.id,
-    title:      row["titulo"]   || "",
-    author:     row["autor"]    || "",
-    status:     row["estado"]   || "pendiente",
-    progress:   Number(row["progreso"])   || 0,
-    total:      Number(row["total"])      || 0,
-    unit:       row["unidad"]            || "cap",
-    step:       1,
-    score:      Number(row["puntuacion"]) || 0,
-    notes:      row["notas"]             || "",
-    sources:    parseSources(row["fuentes"] || ""),
-    customData: buildCustomData(cat, row),
-    sessions:   [],
-    createdAt:  row["fecha_creacion"]     || new Date().toISOString(),
-    updatedAt:  row["fecha_actualizacion"]|| new Date().toISOString(),
-  }));
+
+  // Filtrar filas completamente vacías que Sheets puede devolver
+  const datosValidos = (sheetCat.datos || []).filter((row) => {
+    const vals = Object.values(row);
+    return vals.some((v) => v !== "" && v !== null && v !== undefined);
+  });
+
+  return datosValidos.map((row) => {
+    // AppScript puede devolver keys como label ("Título") o como slug ("titulo").
+    // get() prueba ambas variantes y también convierte a string para evitar
+    // que Date objects o números rompan el render.
+    const get = (slug, label) => {
+      const v = row[slug] ?? row[label] ?? row[slugify(label)] ?? "";
+      return v === null || v === undefined ? "" : String(v);
+    };
+
+    return {
+      id:         get("id",                 "ID")                  || uid(),
+      catId:      cat.id,
+      title:      get("titulo",             "Título"),
+      author:     get("autor",              "Autor / Director"),
+      status:     get("estado",             "Estado")              || "pendiente",
+      progress:   Number(get("progreso",    "Progreso"))           || 0,
+      total:      Number(get("total",       "Total"))              || 0,
+      unit:       get("unidad",             "Unidad")              || "cap",
+      step:       1,
+      score:      Number(get("puntuacion",  "Puntuación"))         || 0,
+      notes:      get("notas",              "Notas"),
+      sources:    parseSources(get("fuentes", "Fuentes")),
+      customData: buildCustomData(cat, row),
+      sessions:   [],
+      createdAt:  get("fecha_creacion",     "Fecha creación")      || new Date().toISOString(),
+      updatedAt:  get("fecha_actualizacion","Última actualización") || new Date().toISOString(),
+    };
+  });
+}
+
+/**
+ * Versión simplificada de mapSheetItems que recibe la cat ya resuelta
+ * (sin necesidad de buscarla por sheetName, evitando problemas con
+ * nombres de hoja que contienen caracteres especiales).
+ */
+function mapSheetItemsById(sheetCat, cat) {
+  if (!cat) return [];
+
+  const datosValidos = (sheetCat.datos || []).filter((row) => {
+    const vals = Object.values(row);
+    return vals.some((v) => v !== "" && v !== null && v !== undefined);
+  });
+
+  return datosValidos.map((row) => {
+    const get = (slug, label) => {
+      const v = row[slug] ?? row[label] ?? row[slugify(label)] ?? "";
+      return v === null || v === undefined ? "" : String(v);
+    };
+
+    return {
+      id:         get("id",                 "ID")                  || uid(),
+      catId:      cat.id,
+      title:      get("titulo",             "Título"),
+      author:     get("autor",              "Autor / Director"),
+      status:     get("estado",             "Estado")              || "pendiente",
+      progress:   Number(get("progreso",    "Progreso"))           || 0,
+      total:      Number(get("total",       "Total"))              || 0,
+      unit:       get("unidad",             "Unidad")              || "cap",
+      step:       1,
+      score:      Number(get("puntuacion",  "Puntuación"))         || 0,
+      notes:      get("notas",              "Notas"),
+      sources:    parseSources(get("fuentes", "Fuentes")),
+      customData: buildCustomData(cat, row),
+      sessions:   [],
+      createdAt:  get("fecha_creacion",     "Fecha creación")      || new Date().toISOString(),
+      updatedAt:  get("fecha_actualizacion","Última actualización") || new Date().toISOString(),
+    };
+  });
 }
 
 function parseSources(raw) {
