@@ -302,20 +302,25 @@ function mapSheetItems(sheetCat, mappedCats) {
  * nombres de hoja que contienen caracteres especiales).
  */
 function mapSheetItemsById(sheetCat, cat) {
-  if (!cat) return [];
+  if (!cat) { console.warn("[mapSheetItemsById] cat es null para:", sheetCat.categoria); return []; }
 
-  const datosValidos = (sheetCat.datos || []).filter((row) => {
+  const todosLosDatos = sheetCat.datos || [];
+  console.log(`[mapSheetItemsById] "${sheetCat.categoria}" => ${todosLosDatos.length} filas totales`);
+  if (todosLosDatos.length > 0) console.log("  keys primera fila:", Object.keys(todosLosDatos[0]));
+
+  const datosValidos = todosLosDatos.filter((row) => {
     const vals = Object.values(row);
     return vals.some((v) => v !== "" && v !== null && v !== undefined);
   });
+  console.log(`  datosValidos: ${datosValidos.length}`);
 
-  return datosValidos.map((row) => {
+  const result = datosValidos.map((row) => {
     const get = (slug, label) => {
       const v = row[slug] ?? row[label] ?? row[slugify(label)] ?? "";
       return v === null || v === undefined ? "" : String(v);
     };
 
-    return {
+    const item = {
       id:         get("id",                 "ID")                  || uid(),
       catId:      cat.id,
       title:      get("titulo",             "Título"),
@@ -333,7 +338,11 @@ function mapSheetItemsById(sheetCat, cat) {
       createdAt:  get("fecha_creacion",     "Fecha creación")      || new Date().toISOString(),
       updatedAt:  get("fecha_actualizacion","Última actualización") || new Date().toISOString(),
     };
+    console.log("  item mapeado:", item.id, item.title, "catId:", item.catId);
+    return item;
   });
+  console.log(`  => ${result.length} items generados para cat.id=${cat.id}`);
+  return result;
 }
 
 function parseSources(raw) {
