@@ -5,7 +5,7 @@
 // Cuando el proxy esté listo, solo cambia PROXY_BASE_URL.
 // ════════════════════════════════════════════════════════════════════════
 
-const PROXY_BASE_URL = "https://tu-proxy.com"; // ← reemplazar cuando esté listo
+const PROXY_BASE_URL = "https://proxy-vaultmedia.onrender.com"; // ← reemplazar cuando esté listo
 
 // ── Utilidad interna ─────────────────────────────────────────────────────────
 async function _request(method, path, body = null) {
