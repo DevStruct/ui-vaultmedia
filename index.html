@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VAULTMEDIA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=VT323&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=VT323&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div id="crt-scan"></div>
 
@@ -44,7 +48,9 @@
           <div class="hstat-l">FIN</div>
         </div>
         <div class="vdiv"></div>
-        <button class="btn btn-primary btn-sm" id="btn-new-item">+ ELEMENTO</button>
+        <button class="btn btn-primary btn-sm" id="btn-new-item">
+          + ELEMENTO
+        </button>
       </div>
     </header>
 
@@ -60,13 +66,17 @@
       <div class="sb-section">
         <div class="sb-label">
           <span>Categorías</span>
-          <span id="cat-count-label" style="font-size:8px;color:rgba(212,255,230,.2)"></span>
+          <span id="cat-count-label" style="font-size: 8px; color: rgba(212, 255, 230, 0.2)"></span>
         </div>
         <div id="cats-list"></div>
       </div>
       <div class="sb-divider"></div>
-      <div class="sb-section" style="padding-bottom:6px">
-        <button class="btn btn-ghost btn-sm" id="btn-new-cat" style="width:100%;border-color:rgba(57,255,138,.2);color:rgba(57,255,138,.5)">
+      <div class="sb-section" style="padding-bottom: 6px">
+        <button class="btn btn-ghost btn-sm" id="btn-new-cat" style="
+              width: 100%;
+              border-color: rgba(57, 255, 138, 0.2);
+              color: rgba(57, 255, 138, 0.5);
+            ">
           + NUEVA CATEGORÍA
         </button>
       </div>
@@ -80,7 +90,8 @@
     <main id="main">
       <div class="search-wrap">
         <span class="search-ico">⌕</span>
-        <input id="search-input" class="f-input" style="padding-left:34px" placeholder="Buscar título, autor, fuente…" />
+        <input id="search-input" class="f-input" style="padding-left: 34px"
+          placeholder="Buscar título, autor, fuente…" />
       </div>
       <div id="cards-area"></div>
     </main>
@@ -88,13 +99,21 @@
     <aside id="detail">
       <div class="detail-head">
         <span class="detail-head-label">▮ DETALLE</span>
-        <button class="icon-btn" id="btn-close-detail" style="display:none">✕</button>
+        <button class="icon-btn" id="btn-close-detail" style="display: none">
+          ✕
+        </button>
       </div>
       <div id="detail-empty">
         <div class="empty-glyph">◫</div>
-        <div style="font-family:'Orbitron',monospace;font-size:11px;letter-spacing:.1em">SELECCIONA UN ELEMENTO</div>
+        <div style="
+              font-family: &quot;Orbitron&quot;, monospace;
+              font-size: 11px;
+              letter-spacing: 0.1em;
+            ">
+          SELECCIONA UN ELEMENTO
+        </div>
       </div>
-      <div id="detail-body" style="display:none"></div>
+      <div id="detail-body" style="display: none"></div>
     </aside>
   </div>
 
@@ -106,9 +125,15 @@
         <button class="modal-close" data-close="modal-cat">✕</button>
       </div>
       <div class="modal-tabs">
-        <button class="modal-tab active" data-tab="tab-info">① Info general</button>
-        <button class="modal-tab" data-tab="tab-schema">② Diseñar tabla</button>
-        <button class="modal-tab" data-tab="tab-preview">③ Vista previa</button>
+        <button class="modal-tab active" data-tab="tab-info">
+          ① Info general
+        </button>
+        <button class="modal-tab" data-tab="tab-schema">
+          ② Diseñar tabla
+        </button>
+        <button class="modal-tab" data-tab="tab-preview">
+          ③ Vista previa
+        </button>
       </div>
 
       <!-- TAB 1: Info -->
@@ -123,8 +148,9 @@
         </div>
         <div>
           <label class="f-label">Tipo de contenido</label>
-          <div class="schema-info" style="margin-bottom:8px">
-            Elige el tipo para cargar columnas sugeridas. Podrás activarlas o desactivarlas en el siguiente paso.
+          <div class="schema-info" style="margin-bottom: 8px">
+            Elige el tipo para cargar columnas sugeridas. Podrás activarlas o
+            desactivarlas en el siguiente paso.
           </div>
           <!-- Preset selector: generado por JS en buildPresetSelector() -->
           <div id="preset-selector" class="preset-selector"></div>
@@ -137,22 +163,28 @@
           <label class="f-label">Color</label>
           <div class="color-picker" id="color-picker"></div>
         </div>
-        <div style="display:flex;justify-content:flex-end">
-          <button class="btn btn-primary btn-sm" onclick="switchTab('tab-schema')">Siguiente: Diseñar tabla →</button>
+        <div style="display: flex; justify-content: flex-end">
+          <button class="btn btn-primary btn-sm" onclick="switchTab('tab-schema')">
+            Siguiente: Diseñar tabla →
+          </button>
         </div>
       </div>
 
       <!-- TAB 2: Schema Designer -->
       <div class="tab-panel" id="tab-schema">
         <div class="schema-info">
-          Cada categoría en Google Sheets tendrá su propia hoja. Las <strong>columnas base</strong> se agregan
-          automáticamente. Las <strong>columnas preestablecidas</strong> dependen del tipo elegido — actívalas
-          o desactívalas. Puedes añadir <strong>columnas personalizadas</strong> adicionales.
+          Cada categoría en Google Sheets tendrá su propia hoja. Las
+          <strong>columnas base</strong> se agregan automáticamente. Las
+          <strong>columnas preestablecidas</strong> dependen del tipo elegido
+          — actívalas o desactívalas. Puedes añadir
+          <strong>columnas personalizadas</strong> adicionales.
         </div>
 
         <!-- BASE COLS -->
         <div>
-          <div class="f-label" style="margin-bottom:8px;font-size:10px">Columnas base (automáticas — no editables)</div>
+          <div class="f-label" style="margin-bottom: 8px; font-size: 10px">
+            Columnas base (automáticas — no editables)
+          </div>
           <table class="base-cols-table" id="base-cols-table"></table>
         </div>
 
@@ -160,9 +192,13 @@
 
         <!-- PRESET COLS TOGGLES -->
         <div>
-          <div class="f-label" style="margin-bottom:8px;font-size:10px">
+          <div class="f-label" style="margin-bottom: 8px; font-size: 10px">
             Columnas preestablecidas
-            <span style="color:rgba(212,255,230,.3);margin-left:6px;font-size:9px">— activa las que necesites</span>
+            <span style="
+                  color: rgba(212, 255, 230, 0.3);
+                  margin-left: 6px;
+                  font-size: 9px;
+                ">— activa las que necesites</span>
           </div>
           <div id="preset-cols-container"></div>
         </div>
@@ -171,38 +207,72 @@
 
         <!-- CUSTOM COLS -->
         <div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-            <div class="f-label" style="margin:0;font-size:10px">Columnas personalizadas adicionales</div>
-            <button class="icon-btn" id="btn-add-col">+ Agregar columna</button>
+          <div style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+              ">
+            <div class="f-label" style="margin: 0; font-size: 10px">
+              Columnas personalizadas adicionales
+            </div>
+            <button class="icon-btn" id="btn-add-col">
+              + Agregar columna
+            </button>
           </div>
           <div class="col-builder" id="col-builder">
-            <div id="no-cols-hint" style="font-size:11px;color:rgba(212,255,230,.25);padding:10px;border:1px dashed #1e3028;border-radius:3px;text-align:center">
-              Sin columnas adicionales. Usa "Agregar columna" para campos extra.
+            <div id="no-cols-hint" style="
+                  font-size: 11px;
+                  color: rgba(212, 255, 230, 0.25);
+                  padding: 10px;
+                  border: 1px dashed #1e3028;
+                  border-radius: 3px;
+                  text-align: center;
+                ">
+              Sin columnas adicionales. Usa "Agregar columna" para campos
+              extra.
             </div>
           </div>
         </div>
 
-        <div style="display:flex;justify-content:space-between">
-          <button class="btn btn-ghost btn-sm" onclick="switchTab('tab-info')">← Volver</button>
-          <button class="btn btn-primary btn-sm" onclick="switchTab('tab-preview')">Ver vista previa →</button>
+        <div style="display: flex; justify-content: space-between">
+          <button class="btn btn-ghost btn-sm" onclick="switchTab('tab-info')">
+            ← Volver
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="switchTab('tab-preview')">
+            Ver vista previa →
+          </button>
         </div>
       </div>
 
       <!-- TAB 3: Preview -->
       <div class="tab-panel" id="tab-preview">
         <div class="schema-preview" id="schema-preview-wrap"></div>
-        <div class="schema-info" style="font-size:10px">
-          Esta es la estructura de la hoja en Google Sheets.<br>
-          <span style="color:#4dc8ff">Azul</span> = sistema ·
-          <span style="color:#b87fff">Violeta</span> = preestablecidas ·
-          <span style="color:#39ff8a">Verde</span> = personalizadas ·
+        <div class="schema-info" style="font-size: 10px">
+          Esta es la estructura de la hoja en Google Sheets.<br />
+          <span style="color: #4dc8ff">Azul</span> = sistema ·
+          <span style="color: #b87fff">Violeta</span> = preestablecidas ·
+          <span style="color: #39ff8a">Verde</span> = personalizadas ·
           asterisco (*) = requerido.
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <button class="btn btn-ghost btn-sm" onclick="switchTab('tab-schema')">← Volver</button>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
-            <div id="cat-save-error" class="inline-error" style="display:none"></div>
-            <button class="btn btn-primary" id="btn-save-cat">Crear en Google Sheets</button>
+        <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            ">
+          <button class="btn btn-ghost btn-sm" onclick="switchTab('tab-schema')">
+            ← Volver
+          </button>
+          <div style="
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 6px;
+              ">
+            <div id="cat-save-error" class="inline-error" style="display: none"></div>
+            <button class="btn btn-primary" id="btn-save-cat">
+              Crear en Google Sheets
+            </button>
           </div>
         </div>
       </div>
@@ -217,8 +287,8 @@
         <button class="modal-close" data-close="modal-item">✕</button>
       </div>
       <div class="modal-body">
-        <div id="item-no-cats" class="no-cats-msg" style="display:none">
-          Debes crear al menos una categoría antes de agregar elementos.<br>
+        <div id="item-no-cats" class="no-cats-msg" style="display: none">
+          Debes crear al menos una categoría antes de agregar elementos.<br />
           Usa <strong>+ NUEVA CATEGORÍA</strong> en el panel izquierdo.
         </div>
         <div id="item-form-fields">
@@ -239,15 +309,31 @@
           <div>
             <label class="f-label">Estado</label>
             <div class="status-pill-group" id="item-status-group">
-              <button class="status-pill active" data-val="pendiente">Pendiente</button>
-              <button class="status-pill" data-val="en progreso">En progreso</button>
-              <button class="status-pill" data-val="completado">Completado</button>
-              <button class="status-pill" data-val="abandonado">Abandonado</button>
+              <button class="status-pill active" data-val="pendiente">
+                Pendiente
+              </button>
+              <button class="status-pill" data-val="en progreso">
+                En progreso
+              </button>
+              <button class="status-pill" data-val="completado">
+                Completado
+              </button>
+              <button class="status-pill" data-val="abandonado">
+                Abandonado
+              </button>
             </div>
           </div>
           <div>
             <label class="f-label">Configuración de progreso</label>
-            <div style="background:#0a0f0d;border:1px solid #1e3028;border-radius:3px;padding:14px;display:flex;flex-direction:column;gap:12px">
+            <div style="
+                  background: #0a0f0d;
+                  border: 1px solid #1e3028;
+                  border-radius: 3px;
+                  padding: 14px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                ">
               <div class="f-row">
                 <div>
                   <label class="f-label">Unidad de medida</label>
@@ -261,7 +347,7 @@
                     <option value="custom">Personalizado…</option>
                   </select>
                 </div>
-                <div id="item-unit-custom-wrap" style="display:none">
+                <div id="item-unit-custom-wrap" style="display: none">
                   <label class="f-label">Unidad personalizada</label>
                   <input class="f-input" id="item-unit-custom" placeholder="ej. pista, parte…" />
                 </div>
@@ -272,33 +358,60 @@
               </div>
               <div>
                 <label class="f-label">Progreso actual</label>
-                <div style="display:flex;gap:8px;align-items:center">
-                  <input class="f-input" id="item-progress" type="number" min="0" placeholder="0" style="width:100px" />
-                  <span style="color:rgba(212,255,230,.25);font-family:'VT323',monospace;font-size:20px">/</span>
-                  <span id="item-total-echo" style="font-family:'VT323',monospace;font-size:20px;color:rgba(212,255,230,.25)">?</span>
-                  <span id="item-unit-echo" style="font-size:11px;color:rgba(212,255,230,.3)"></span>
-                  <span id="item-pct-echo" style="font-family:'Orbitron',monospace;font-size:10px;font-weight:700;color:#39ff8a;margin-left:4px"></span>
+                <div style="display: flex; gap: 8px; align-items: center">
+                  <input class="f-input" id="item-progress" type="number" min="0" placeholder="0"
+                    style="width: 100px" />
+                  <span style="
+                        color: rgba(212, 255, 230, 0.25);
+                        font-family: &quot;VT323&quot;, monospace;
+                        font-size: 20px;
+                      ">/</span>
+                  <span id="item-total-echo" style="
+                        font-family: &quot;VT323&quot;, monospace;
+                        font-size: 20px;
+                        color: rgba(212, 255, 230, 0.25);
+                      ">?</span>
+                  <span id="item-unit-echo" style="font-size: 11px; color: rgba(212, 255, 230, 0.3)"></span>
+                  <span id="item-pct-echo" style="
+                        font-family: &quot;Orbitron&quot;, monospace;
+                        font-size: 10px;
+                        font-weight: 700;
+                        color: #39ff8a;
+                        margin-left: 4px;
+                      "></span>
                 </div>
               </div>
               <div>
                 <label class="f-label">Incremento rápido (sesión típica)</label>
-                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                  <input class="f-input" id="item-step" type="number" min="1" placeholder="1" style="width:80px" />
-                  <span id="item-step-unit-echo" style="font-size:11px;color:rgba(212,255,230,.3)"></span>
-                  <span style="font-size:10px;color:rgba(212,255,230,.2)">— aparecerá como botón rápido</span>
+                <div style="
+                      display: flex;
+                      gap: 8px;
+                      align-items: center;
+                      flex-wrap: wrap;
+                    ">
+                  <input class="f-input" id="item-step" type="number" min="1" placeholder="1" style="width: 80px" />
+                  <span id="item-step-unit-echo" style="font-size: 11px; color: rgba(212, 255, 230, 0.3)"></span>
+                  <span style="font-size: 10px; color: rgba(212, 255, 230, 0.2)">— aparecerá como botón rápido</span>
                 </div>
               </div>
             </div>
           </div>
           <div>
             <label class="f-label">Puntuación (1–10)</label>
-            <input class="f-input" id="item-score" type="number" min="1" max="10" placeholder="—" style="width:80px" />
+            <input class="f-input" id="item-score" type="number" min="1" max="10" placeholder="—" style="width: 80px" />
           </div>
           <div id="item-custom-fields"></div>
           <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-              <label class="f-label" style="margin:0">Fuentes de acceso</label>
-              <button class="icon-btn" id="btn-add-source">+ Agregar fuente</button>
+            <div style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                ">
+              <label class="f-label" style="margin: 0">Fuentes de acceso</label>
+              <button class="icon-btn" id="btn-add-source">
+                + Agregar fuente
+              </button>
             </div>
             <div class="sources-list" id="sources-list"></div>
           </div>
@@ -309,8 +422,12 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-ghost" data-close="modal-item">Cancelar</button>
-        <button class="btn btn-primary" id="btn-save-item">Crear elemento</button>
+        <button class="btn btn-ghost" data-close="modal-item">
+          Cancelar
+        </button>
+        <button class="btn btn-primary" id="btn-save-item">
+          Crear elemento
+        </button>
       </div>
     </div>
   </div>
@@ -326,12 +443,17 @@
         <p class="warning-text" id="del-cat-msg"></p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-ghost" data-close="modal-del-cat">Cancelar</button>
-        <button class="btn btn-danger" id="btn-confirm-del-cat">Eliminar todo</button>
+        <button class="btn btn-ghost" data-close="modal-del-cat">
+          Cancelar
+        </button>
+        <button class="btn btn-danger" id="btn-confirm-del-cat">
+          Eliminar todo
+        </button>
       </div>
     </div>
   </div>
 
   <script type="module" src="app.js"></script>
 </body>
+
 </html>
