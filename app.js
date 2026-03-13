@@ -27,19 +27,19 @@ const GRADIENTS = [
   "linear-gradient(160deg,#1a2b0d,#0b1204)",
 ];
 const STATUS_META = {
-  pendiente: { label: "PENDIENTE", cls: "st-pending", selCls: "sel-pending" },
-  "en progreso": { label: "EN CURSO", cls: "st-progress", selCls: "sel-progress" },
-  completado: { label: "COMPLETO", cls: "st-done", selCls: "sel-done" },
-  abandonado: { label: "ABANDONADO", cls: "st-dropped", selCls: "sel-dropped" },
+  pendiente:    { label: "PENDIENTE",  cls: "st-pending",  selCls: "sel-pending"  },
+  "en progreso":{ label: "EN CURSO",   cls: "st-progress", selCls: "sel-progress" },
+  completado:   { label: "COMPLETO",   cls: "st-done",     selCls: "sel-done"     },
+  abandonado:   { label: "ABANDONADO", cls: "st-dropped",  selCls: "sel-dropped"  },
 };
 
 const COL_TYPES = {
-  text: { label: "Texto", badge: "type-text", example: "Ejemplo de texto" },
-  number: { label: "Número", badge: "type-number", example: "42" },
-  date: { label: "Fecha", badge: "type-date", example: "2024-01-15" },
-  bool: { label: "Sí / No", badge: "type-bool", example: "Sí" },
-  url: { label: "URL", badge: "type-url", example: "https://..." },
-  select: { label: "Selección", badge: "type-select", example: "Opción 1" },
+  text:   { label: "Texto",     badge: "type-text",   example: "Ejemplo de texto" },
+  number: { label: "Número",    badge: "type-number",  example: "42"              },
+  date:   { label: "Fecha",     badge: "type-date",    example: "2024-01-15"      },
+  bool:   { label: "Sí / No",   badge: "type-bool",    example: "Sí"              },
+  url:    { label: "URL",       badge: "type-url",     example: "https://..."     },
+  select: { label: "Selección", badge: "type-select",  example: "Opción 1"       },
 };
 
 // ── Columnas preestablecidas por tipo de categoría ────────────────────────────
@@ -49,75 +49,75 @@ const PRESET_COLS = {
   pelicula: {
     label: "Película",
     cols: [
-      { key: "genero", label: "Género", type: "text", on: true },
-      { key: "duracion", label: "Duración (min)", type: "number", on: true },
-      { key: "año", label: "Año", type: "number", on: true },
-      { key: "pais", label: "País", type: "text", on: false },
-      { key: "idioma", label: "Idioma", type: "text", on: false },
-      { key: "saga", label: "Saga / Franquicia", type: "text", on: false },
+      { key: "genero",    label: "Género",          type: "text",   on: true  },
+      { key: "duracion",  label: "Duración (min)",  type: "number", on: true  },
+      { key: "año",       label: "Año",             type: "number", on: true  },
+      { key: "pais",      label: "País",            type: "text",   on: false },
+      { key: "idioma",    label: "Idioma",          type: "text",   on: false },
+      { key: "saga",      label: "Saga / Franquicia",type:"text",   on: false },
     ],
   },
   libro: {
     label: "Libro",
     cols: [
-      { key: "genero", label: "Género", type: "text", on: true },
-      { key: "editorial", label: "Editorial", type: "text", on: true },
-      { key: "año", label: "Año", type: "number", on: true },
-      { key: "isbn", label: "ISBN", type: "text", on: false },
-      { key: "saga", label: "Saga", type: "text", on: false },
-      { key: "idioma", label: "Idioma", type: "text", on: false },
+      { key: "genero",    label: "Género",          type: "text",   on: true  },
+      { key: "editorial", label: "Editorial",       type: "text",   on: true  },
+      { key: "año",       label: "Año",             type: "number", on: true  },
+      { key: "isbn",      label: "ISBN",            type: "text",   on: false },
+      { key: "saga",      label: "Saga",            type: "text",   on: false },
+      { key: "idioma",    label: "Idioma",          type: "text",   on: false },
     ],
   },
   serie: {
     label: "Serie",
     cols: [
-      { key: "genero", label: "Género", type: "text", on: true },
-      { key: "temporadas", label: "Temporadas", type: "number", on: true },
-      { key: "año_inicio", label: "Año inicio", type: "number", on: true },
-      { key: "año_fin", label: "Año fin", type: "number", on: false },
-      { key: "pais", label: "País", type: "text", on: false },
-      { key: "creador", label: "Creador", type: "text", on: false },
+      { key: "genero",      label: "Género",         type: "text",   on: true  },
+      { key: "temporadas",  label: "Temporadas",     type: "number", on: true  },
+      { key: "año_inicio",  label: "Año inicio",     type: "number", on: true  },
+      { key: "año_fin",     label: "Año fin",        type: "number", on: false },
+      { key: "pais",        label: "País",           type: "text",   on: false },
+      { key: "creador",     label: "Creador",        type: "text",   on: false },
     ],
   },
   documental: {
     label: "Documental",
     cols: [
-      { key: "tema", label: "Tema", type: "text", on: true },
-      { key: "duracion", label: "Duración (min)", type: "number", on: true },
-      { key: "año", label: "Año", type: "number", on: true },
-      { key: "pais", label: "País", type: "text", on: false },
-      { key: "formato", label: "Formato", type: "text", on: false },
+      { key: "tema",      label: "Tema",            type: "text",   on: true  },
+      { key: "duracion",  label: "Duración (min)",  type: "number", on: true  },
+      { key: "año",       label: "Año",             type: "number", on: true  },
+      { key: "pais",      label: "País",            type: "text",   on: false },
+      { key: "formato",   label: "Formato",         type: "text",   on: false },
     ],
   },
   podcast: {
     label: "Podcast",
     cols: [
-      { key: "tema", label: "Tema", type: "text", on: true },
-      { key: "frecuencia", label: "Frecuencia", type: "text", on: true },
-      { key: "idioma", label: "Idioma", type: "text", on: true },
-      { key: "año_inicio", label: "Año inicio", type: "number", on: false },
-      { key: "red", label: "Red / Network", type: "text", on: false },
+      { key: "tema",        label: "Tema",            type: "text",   on: true  },
+      { key: "frecuencia",  label: "Frecuencia",      type: "text",   on: true  },
+      { key: "idioma",      label: "Idioma",          type: "text",   on: true  },
+      { key: "año_inicio",  label: "Año inicio",      type: "number", on: false },
+      { key: "red",         label: "Red / Network",   type: "text",   on: false },
     ],
   },
   manga: {
     label: "Manga / Comic",
     cols: [
-      { key: "genero", label: "Género", type: "text", on: true },
-      { key: "editorial", label: "Editorial", type: "text", on: true },
-      { key: "año", label: "Año", type: "number", on: true },
-      { key: "demografia", label: "Demografía", type: "text", on: false },
-      { key: "serializado", label: "Serializado en", type: "text", on: false },
+      { key: "genero",    label: "Género",          type: "text",   on: true  },
+      { key: "editorial", label: "Editorial",       type: "text",   on: true  },
+      { key: "año",       label: "Año",             type: "number", on: true  },
+      { key: "demografia",label: "Demografía",      type: "text",   on: false },
+      { key: "serializado",label:"Serializado en",  type: "text",   on: false },
     ],
   },
   videojuego: {
     label: "Videojuego",
     cols: [
-      { key: "genero", label: "Género", type: "text", on: true },
-      { key: "plataforma", label: "Plataforma", type: "text", on: true },
-      { key: "año", label: "Año", type: "number", on: true },
-      { key: "estudio", label: "Estudio", type: "text", on: false },
-      { key: "modo", label: "Modo de juego", type: "text", on: false },
-      { key: "horas", label: "Horas estimadas", type: "number", on: false },
+      { key: "genero",      label: "Género",          type: "text",   on: true  },
+      { key: "plataforma",  label: "Plataforma",      type: "text",   on: true  },
+      { key: "año",         label: "Año",             type: "number", on: true  },
+      { key: "estudio",     label: "Estudio",         type: "text",   on: false },
+      { key: "modo",        label: "Modo de juego",   type: "text",   on: false },
+      { key: "horas",       label: "Horas estimadas", type: "number", on: false },
     ],
   },
   custom: {
@@ -128,57 +128,57 @@ const PRESET_COLS = {
 
 // Columnas base fijas (siempre incluidas, no se pueden desactivar)
 const BASE_COLS = [
-  { key: "id", label: "ID", type: "auto", desc: "UUID auto-generado", lock: true },
-  { key: "titulo", label: "Título", type: "text", desc: "Nombre del elemento", lock: true },
-  { key: "autor", label: "Autor / Director", type: "text", desc: "Creador del contenido", lock: true },
-  { key: "estado", label: "Estado", type: "select", desc: "pendiente / en progreso / completado / abandonado", lock: true },
-  { key: "progreso", label: "Progreso", type: "number", desc: "Unidad actual de avance", lock: true },
-  { key: "total", label: "Total", type: "number", desc: "Unidad máxima de avance", lock: true },
-  { key: "unidad", label: "Unidad", type: "text", desc: "cap / pág / ep / min …", lock: true },
-  { key: "puntuacion", label: "Puntuación", type: "number", desc: "Valoración personal 1–10", lock: true },
-  { key: "fuentes", label: "Fuentes", type: "text", desc: "Fuentes (nombre|url separadas por ;)", lock: true },
-  { key: "notas", label: "Notas", type: "text", desc: "Texto libre", lock: true },
-  { key: "fecha_creacion", label: "Fecha creación", type: "date", desc: "Fecha de registro", lock: true },
-  { key: "fecha_actualizacion", label: "Última actualización", type: "date", desc: "Última modificación", lock: true },
+  { key: "id",                label: "ID",                 type: "auto",   desc: "UUID auto-generado",               lock: true },
+  { key: "titulo",            label: "Título",             type: "text",   desc: "Nombre del elemento",              lock: true },
+  { key: "autor",             label: "Autor / Director",   type: "text",   desc: "Creador del contenido",            lock: true },
+  { key: "estado",            label: "Estado",             type: "select", desc: "pendiente / en progreso / completado / abandonado", lock: true },
+  { key: "progreso",          label: "Progreso",           type: "number", desc: "Unidad actual de avance",          lock: true },
+  { key: "total",             label: "Total",              type: "number", desc: "Unidad máxima de avance",          lock: true },
+  { key: "unidad",            label: "Unidad",             type: "text",   desc: "cap / pág / ep / min …",          lock: true },
+  { key: "puntuacion",        label: "Puntuación",         type: "number", desc: "Valoración personal 1–10",         lock: true },
+  { key: "fuentes",           label: "Fuentes",            type: "text",   desc: "Fuentes (nombre|url separadas por ;)", lock: true },
+  { key: "notas",             label: "Notas",              type: "text",   desc: "Texto libre",                      lock: true },
+  { key: "fecha_creacion",    label: "Fecha creación",     type: "date",   desc: "Fecha de registro",                lock: true },
+  { key: "fecha_actualizacion",label:"Última actualización",type:"date",   desc: "Última modificación",              lock: true },
 ];
 
-const uid = () => Math.random().toString(36).slice(2, 9);
-const pct = (p, t) => (t > 0 ? Math.min(100, Math.round((p / t) * 100)) : 0);
+const uid   = () => Math.random().toString(36).slice(2, 9);
+const pct   = (p, t) => (t > 0 ? Math.min(100, Math.round((p / t) * 100)) : 0);
 const slugify = (s) =>
   s.toLowerCase().trim()
-    .replace(/[áàä]/g, "a").replace(/[éèë]/g, "e")
-    .replace(/[íìï]/g, "i").replace(/[óòö]/g, "o")
-    .replace(/[úùü]/g, "u").replace(/ñ/g, "n")
-    .replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+   .replace(/[áàä]/g,"a").replace(/[éèë]/g,"e")
+   .replace(/[íìï]/g,"i").replace(/[óòö]/g,"o")
+   .replace(/[úùü]/g,"u").replace(/ñ/g,"n")
+   .replace(/[^a-z0-9]+/g,"_").replace(/^_|_$/g,"");
 
 // ════════════════════════════════════════════════════════════════════════
 // DATA — estado local (espejo de Google Sheets)
 // ════════════════════════════════════════════════════════════════════════
-let cats = [];
+let cats  = [];
 let items = [];
 
 // ════════════════════════════════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════════════════════════════════
 const state = {
-  selCat: "__all__",
+  selCat:    "__all__",
   selStatus: "__all__",
-  selItem: null,
-  search: "",
+  selItem:   null,
+  search:    "",
   // Cat modal
-  editingCat: null,
-  catIcon: CAT_ICONS[0],
-  catColor: CAT_COLORS[0],
-  catPreset: "custom",       // key de PRESET_COLS activo
-  presetCols: [],             // copia mutable de PRESET_COLS[x].cols con .on
-  customCols: [],             // columnas extra añadidas manualmente
+  editingCat:    null,
+  catIcon:       CAT_ICONS[0],
+  catColor:      CAT_COLORS[0],
+  catPreset:     "custom",       // key de PRESET_COLS activo
+  presetCols:    [],             // copia mutable de PRESET_COLS[x].cols con .on
+  customCols:    [],             // columnas extra añadidas manualmente
   // Item modal
-  editingItem: null,
-  modalSources: [],
-  modalStatus: "pendiente",
+  editingItem:   null,
+  modalSources:  [],
+  modalStatus:   "pendiente",
   modalCustomValues: {},
   // Sync
-  syncing: false,
+  syncing:  false,
   syncError: null,
 };
 
@@ -186,12 +186,12 @@ const state = {
 // SYNC HELPERS — feedback visual para operaciones de red
 // ════════════════════════════════════════════════════════════════════════
 function setSyncing(active, error = null) {
-  state.syncing = active;
+  state.syncing   = active;
   state.syncError = error;
   const ind = $("sync-indicator");
   if (!ind) return;
   ind.className = "sync-indicator" + (active ? " syncing" : error ? " error" : " ok");
-  ind.title = active ? "Sincronizando…" : error ? `Error: ${error}` : "Sincronizado";
+  ind.title     = active ? "Sincronizando…" : error ? `Error: ${error}` : "Sincronizado";
 }
 
 // ════════════════════════════════════════════════════════════════════════
@@ -202,7 +202,7 @@ async function loadAll() {
   try {
     const categorias = await fetchAllCategories();
     // Mapear respuesta de AppScript → formato interno
-    cats = categorias.map(mapSheetCat);
+    cats  = categorias.map(mapSheetCat);
     items = categorias.flatMap((c) => mapSheetItems(c, cats));
     setSyncing(false);
   } catch (err) {
@@ -222,19 +222,19 @@ function mapSheetCat(sheetCat) {
   // con el separador "||". Ej: "Películas||◈||#4dc8ff"
   // Si es una hoja simple, usa defaults.
   const parts = sheetCat.categoria.split("||");
-  const name = parts[0].trim();
-  const icon = parts[1]?.trim() || CAT_ICONS[0];
+  const name  = parts[0].trim();
+  const icon  = parts[1]?.trim() || CAT_ICONS[0];
   const color = parts[2]?.trim() || CAT_COLORS[0];
 
   // Derivar columnas personalizadas comparando con BASE_COLS
-  const baseKeys = new Set(BASE_COLS.map((c) => c.key));
+  const baseKeys  = new Set(BASE_COLS.map((c) => c.key));
   const extraCols = (sheetCat.headers || [])
     .filter((h) => !baseKeys.has(slugify(h)))
     .map((h) => ({
-      id: uid(),
-      key: slugify(h),
-      label: h,
-      type: "text",
+      id:       uid(),
+      key:      slugify(h),
+      label:    h,
+      type:     "text",
       required: false,
     }));
 
@@ -245,25 +245,25 @@ function mapSheetCat(sheetCat) {
  * Convierte las filas de datos de una categoría en ítems internos.
  */
 function mapSheetItems(sheetCat, mappedCats) {
-  const cat = mappedCats.find((c) => c.sheetName === sheetCat.categoria);
+  const cat   = mappedCats.find((c) => c.sheetName === sheetCat.categoria);
   if (!cat) return [];
   return (sheetCat.datos || []).map((row) => ({
-    id: row["id"] || uid(),
-    catId: cat.id,
-    title: row["titulo"] || "",
-    author: row["autor"] || "",
-    status: row["estado"] || "pendiente",
-    progress: Number(row["progreso"]) || 0,
-    total: Number(row["total"]) || 0,
-    unit: row["unidad"] || "cap",
-    step: 1,
-    score: Number(row["puntuacion"]) || 0,
-    notes: row["notas"] || "",
-    sources: parseSources(row["fuentes"] || ""),
+    id:         row["id"]       || uid(),
+    catId:      cat.id,
+    title:      row["titulo"]   || "",
+    author:     row["autor"]    || "",
+    status:     row["estado"]   || "pendiente",
+    progress:   Number(row["progreso"])   || 0,
+    total:      Number(row["total"])      || 0,
+    unit:       row["unidad"]            || "cap",
+    step:       1,
+    score:      Number(row["puntuacion"]) || 0,
+    notes:      row["notas"]             || "",
+    sources:    parseSources(row["fuentes"] || ""),
     customData: buildCustomData(cat, row),
-    sessions: [],
-    createdAt: row["fecha_creacion"] || new Date().toISOString(),
-    updatedAt: row["fecha_actualizacion"] || new Date().toISOString(),
+    sessions:   [],
+    createdAt:  row["fecha_creacion"]     || new Date().toISOString(),
+    updatedAt:  row["fecha_actualizacion"]|| new Date().toISOString(),
   }));
 }
 
@@ -298,17 +298,17 @@ function serializeSources(sources) {
  */
 function itemToSheetRow(it, cat) {
   const row = {
-    id: it.id,
-    titulo: it.title,
-    autor: it.author,
-    estado: it.status,
-    progreso: it.progress,
-    total: it.total,
-    unidad: it.unit,
-    puntuacion: it.score,
-    fuentes: serializeSources(it.sources),
-    notas: it.notes,
-    fecha_creacion: it.createdAt,
+    id:                  it.id,
+    titulo:              it.title,
+    autor:               it.author,
+    estado:              it.status,
+    progreso:            it.progress,
+    total:               it.total,
+    unidad:              it.unit,
+    puntuacion:          it.score,
+    fuentes:             serializeSources(it.sources),
+    notas:               it.notes,
+    fecha_creacion:      it.createdAt,
     fecha_actualizacion: it.updatedAt,
   };
   // Columnas personalizadas
@@ -317,6 +317,13 @@ function itemToSheetRow(it, cat) {
   });
   return row;
 }
+
+// ════════════════════════════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════════════════════════════
+const $       = (id) => document.getElementById(id);
+const catById = (id) => cats.find((c) => c.id === id);
+const colorIdx= (col) => CAT_COLORS.indexOf(col);
 
 // ════════════════════════════════════════════════════════════════════════
 // CLOCK
@@ -328,13 +335,6 @@ function tickClock() {
 }
 tickClock();
 setInterval(tickClock, 1000);
-
-// ════════════════════════════════════════════════════════════════════════
-// HELPERS
-// ════════════════════════════════════════════════════════════════════════
-const $ = (id) => document.getElementById(id);
-const catById = (id) => cats.find((c) => c.id === id);
-const colorIdx = (col) => CAT_COLORS.indexOf(col);
 
 // ════════════════════════════════════════════════════════════════════════
 // RENDER SIDEBAR
@@ -353,9 +353,9 @@ function renderSidebar() {
   }
 
   cats.forEach((c) => {
-    const cnt = items.filter((i) => i.catId === c.id).length;
+    const cnt    = items.filter((i) => i.catId === c.id).length;
     const active = state.selCat === c.id;
-    const el = document.createElement("div");
+    const el     = document.createElement("div");
     el.className = "sb-item" + (active ? " active" : "");
     el.style.setProperty("--cc", c.color);
     el.innerHTML = `
@@ -369,8 +369,8 @@ function renderSidebar() {
       </div>`;
     el.addEventListener("click", () => { state.selCat = active ? "__all__" : c.id; render(); });
     el.querySelector(".cat-act-table").addEventListener("click", (e) => { e.stopPropagation(); openCatModal(c, "tab-schema"); });
-    el.querySelector(".cat-act-edit").addEventListener("click", (e) => { e.stopPropagation(); openCatModal(c); });
-    el.querySelector(".cat-act-del").addEventListener("click", (e) => { e.stopPropagation(); openDelCatModal(c); });
+    el.querySelector(".cat-act-edit").addEventListener("click",  (e) => { e.stopPropagation(); openCatModal(c); });
+    el.querySelector(".cat-act-del").addEventListener("click",   (e) => { e.stopPropagation(); openDelCatModal(c); });
     list.appendChild(el);
   });
 
@@ -379,7 +379,7 @@ function renderSidebar() {
   dist.innerHTML = "";
   cats.forEach((c) => {
     const cnt = items.filter((i) => i.catId === c.id).length;
-    const p = total > 0 ? Math.round((cnt / total) * 100) : 0;
+    const p   = total > 0 ? Math.round((cnt / total) * 100) : 0;
     dist.insertAdjacentHTML("beforeend", `
       <div style="margin-bottom:10px">
         <div class="dist-label-row">
@@ -397,9 +397,9 @@ function renderSidebar() {
 // RENDER STATS
 // ════════════════════════════════════════════════════════════════════════
 function renderStats() {
-  $("stat-total").textContent = items.length;
+  $("stat-total").textContent  = items.length;
   $("stat-inprog").textContent = items.filter((i) => i.status === "en progreso").length;
-  $("stat-done").textContent = items.filter((i) => i.status === "completado").length;
+  $("stat-done").textContent   = items.filter((i) => i.status === "completado").length;
 }
 
 // ════════════════════════════════════════════════════════════════════════
@@ -407,9 +407,9 @@ function renderStats() {
 // ════════════════════════════════════════════════════════════════════════
 function getFiltered() {
   return items.filter((it) => {
-    const mCat = state.selCat === "__all__" || it.catId === state.selCat;
+    const mCat    = state.selCat    === "__all__" || it.catId  === state.selCat;
     const mStatus = state.selStatus === "__all__" || it.status === state.selStatus;
-    const q = state.search.toLowerCase();
+    const q       = state.search.toLowerCase();
     const mSearch = !q
       || it.title.toLowerCase().includes(q)
       || (it.author || "").toLowerCase().includes(q)
@@ -419,15 +419,15 @@ function getFiltered() {
 }
 
 function renderCards() {
-  const area = $("cards-area");
+  const area     = $("cards-area");
   const filtered = getFiltered();
   area.innerHTML = "";
 
   if (!filtered.length) {
     const reason = !items.length
       ? (!cats.length
-        ? "Crea una categoría desde el panel izquierdo para empezar."
-        : "Agrega tu primer elemento con el botón + ELEMENTO.")
+          ? "Crea una categoría desde el panel izquierdo para empezar."
+          : "Agrega tu primer elemento con el botón + ELEMENTO.")
       : "";
     area.innerHTML = `<div id="empty-state">
       <div class="empty-glyph">◻</div>
@@ -444,11 +444,11 @@ function renderCards() {
   cats.forEach((c) => {
     const grpItems = groups[c.id];
     if (!grpItems?.length) return;
-    const ci = colorIdx(c.color);
+    const ci  = colorIdx(c.color);
     const sec = document.createElement("div");
     sec.style.marginBottom = "18px";
 
-    const hasCols = c.columns?.length > 0;
+    const hasCols  = c.columns?.length > 0;
     const colBadge = hasCols
       ? `<span class="col-count-badge">${BASE_COLS.length + c.columns.length} cols</span>` : "";
 
@@ -476,10 +476,10 @@ function renderCards() {
 }
 
 function buildCard(it, c, ci) {
-  const p = pct(it.progress, it.total);
+  const p     = pct(it.progress, it.total);
   const smeta = STATUS_META[it.status] || STATUS_META["pendiente"];
-  const cc = c.color;
-  const grad = GRADIENTS[ci % GRADIENTS.length];
+  const cc    = c.color;
+  const grad  = GRADIENTS[ci % GRADIENTS.length];
 
   const card = document.createElement("div");
   card.className = "media-card";
@@ -487,7 +487,7 @@ function buildCard(it, c, ci) {
   card.addEventListener("mouseleave", () => { card.style.borderColor = ""; card.style.boxShadow = ""; });
   card.addEventListener("click", () => selectItem(it.id));
 
-  const visibleCols = (c.columns || []).filter((col) => it.customData?.[col.key] != null && it.customData[col.key] !== "").slice(0, 2);
+  const visibleCols   = (c.columns || []).filter((col) => it.customData?.[col.key] != null && it.customData[col.key] !== "").slice(0, 2);
   const customFieldsHtml = visibleCols.map((col) => `
     <div class="mc-cf-row">
       <span class="mc-cf-key">${col.label}:</span>
@@ -547,7 +547,7 @@ function buildCard(it, c, ci) {
     if (e.key === "Enter") { e.stopPropagation(); const amt = parseInt(sessionInput.value) || it.step || 1; logSession(it.id, amt); sessionInput.value = ""; }
   });
   card.querySelector('[data-action="edit"]').addEventListener("click", (e) => { e.stopPropagation(); openItemModal(it); });
-  card.querySelector('[data-action="del"]').addEventListener("click", (e) => { e.stopPropagation(); deleteItem(it.id); });
+  card.querySelector('[data-action="del"]').addEventListener("click",  (e) => { e.stopPropagation(); deleteItem(it.id); });
   return card;
 }
 
@@ -555,23 +555,23 @@ function buildCard(it, c, ci) {
 // RENDER DETAIL (sin cambios funcionales)
 // ════════════════════════════════════════════════════════════════════════
 function renderDetail() {
-  const body = $("detail-body");
-  const empty = $("detail-empty");
+  const body     = $("detail-body");
+  const empty    = $("detail-empty");
   const closeBtn = $("btn-close-detail");
 
   if (!state.selItem) { body.style.display = "none"; empty.style.display = "flex"; closeBtn.style.display = "none"; return; }
   const it = items.find((i) => i.id === state.selItem);
   if (!it) { state.selItem = null; renderDetail(); return; }
 
-  const c = catById(it.catId) || { icon: "◫", name: "?", color: "#39ff8a", columns: [] };
-  const cc = c.color;
-  const ci = colorIdx(cc);
+  const c    = catById(it.catId) || { icon: "◫", name: "?", color: "#39ff8a", columns: [] };
+  const cc   = c.color;
+  const ci   = colorIdx(cc);
   const grad = GRADIENTS[ci % GRADIENTS.length];
-  const p = pct(it.progress, it.total);
-  const smeta = STATUS_META[it.status];
+  const p    = pct(it.progress, it.total);
+  const smeta= STATUS_META[it.status];
 
   empty.style.display = "none";
-  body.style.display = "flex";
+  body.style.display  = "flex";
   closeBtn.style.display = "block";
 
   const customRows = (c.columns || []).map((col) => {
@@ -598,10 +598,10 @@ function renderDetail() {
       <div class="d-section-label">Fuentes (${(it.sources || []).length})</div>
       <div class="d-sources">
         ${!(it.sources || []).length
-      ? `<span style="font-size:11px;color:rgba(212,255,230,.25)">Sin fuentes</span>`
-      : (it.sources || []).map((s, i) => `
+          ? `<span style="font-size:11px;color:rgba(212,255,230,.25)">Sin fuentes</span>`
+          : (it.sources || []).map((s, i) => `
             <div class="d-src-row">
-              <span class="d-src-num">${String(i + 1).padStart(2, "0")}</span>
+              <span class="d-src-num">${String(i+1).padStart(2,"0")}</span>
               <span class="d-src-name">${s.name}</span>
               ${s.url ? `<a class="d-src-link" href="${s.url}" target="_blank" rel="noreferrer">↗ Abrir</a>` : ""}
             </div>`).join("")}
@@ -673,8 +673,8 @@ function renderDetail() {
       <div class="d-section-label">Estado</div>
       <div class="d-status-btns">
         ${Object.entries(STATUS_META).map(([val, m]) =>
-        `<button class="d-status-opt${it.status === val ? " " + m.selCls : ""}" data-val="${val}">${m.label}</button>`
-      ).join("")}
+          `<button class="d-status-opt${it.status === val ? " " + m.selCls : ""}" data-val="${val}">${m.label}</button>`
+        ).join("")}
       </div>
     </div>
     ${it.notes ? `<div><div class="d-section-label">Notas</div><div class="d-notes">${it.notes}</div></div>` : ""}
@@ -701,20 +701,20 @@ function renderDetail() {
     });
   });
   body.querySelector("#d-btn-log-session")?.addEventListener("click", () => {
-    const val = parseInt(body.querySelector("#d-session-val")?.value) || 0;
-    const note = body.querySelector("#d-session-note")?.value.trim() || "";
+    const val  = parseInt(body.querySelector("#d-session-val")?.value) || 0;
+    const note = body.querySelector("#d-session-note")?.value.trim()  || "";
     if (!val) return;
     logSession(it.id, val, note);
-    if (body.querySelector("#d-session-val")) body.querySelector("#d-session-val").value = "";
+    if (body.querySelector("#d-session-val"))  body.querySelector("#d-session-val").value  = "";
     if (body.querySelector("#d-session-note")) body.querySelector("#d-session-note").value = "";
   });
   body.querySelector("#d-session-val")?.addEventListener("keydown", (e) => { if (e.key === "Enter") body.querySelector("#d-btn-log-session")?.click(); });
   const directInput = body.querySelector("#d-direct-val");
   body.querySelector("#d-btn-direct-apply")?.addEventListener("click", () => { const val = parseInt(directInput?.value); if (!isNaN(val)) changeProgress(it.id, val); });
   directInput?.addEventListener("keydown", (e) => { if (e.key === "Enter") body.querySelector("#d-btn-direct-apply")?.click(); });
-  const slider = body.querySelector("#d-pct-slider");
+  const slider  = body.querySelector("#d-pct-slider");
   const pctDisp = body.querySelector("#d-pct-display");
-  const pctApply = body.querySelector("#d-btn-pct-apply");
+  const pctApply= body.querySelector("#d-btn-pct-apply");
   slider?.addEventListener("input", () => { pctDisp.textContent = slider.value + "%"; if (pctApply) pctApply.textContent = `Aplicar ${slider.value}%`; });
   pctApply?.addEventListener("click", () => { changeProgress(it.id, Math.round((parseInt(slider.value) / 100) * it.total)); });
 }
@@ -730,7 +730,7 @@ function render() { renderStats(); renderSidebar(); renderCards(); renderDetail(
 function selectItem(id) { state.selItem = state.selItem === id ? null : id; renderDetail(); }
 
 async function deleteItem(id) {
-  const it = items.find((i) => i.id === id);
+  const it  = items.find((i) => i.id === id);
   const cat = catById(it?.catId);
   items = items.filter((i) => i.id !== id);
   if (state.selItem === id) state.selItem = null;
@@ -738,7 +738,7 @@ async function deleteItem(id) {
   // Sync remoto
   if (it && cat) {
     setSyncing(true);
-    try { await deleteItemRemote(cat.sheetName, id); setSyncing(false); }
+    try   { await deleteItemRemote(cat.sheetName, id); setSyncing(false); }
     catch (err) { setSyncing(false, err.message); }
   }
 }
@@ -756,11 +756,11 @@ function logSession(id, amount, note = "") {
   const it = items.find((i) => i.id === id);
   if (!it || !amount) return;
   if (!it.sessions) it.sessions = [];
-  const prev = it.progress;
-  it.progress = Math.max(0, Math.min(it.total || Infinity, it.progress + amount));
+  const prev   = it.progress;
+  it.progress  = Math.max(0, Math.min(it.total || Infinity, it.progress + amount));
   if (it.total > 0 && it.progress >= it.total) it.status = "completado";
-  const now = new Date();
-  const dateStr = now.toLocaleDateString("es", { day: "2-digit", month: "short", year: "numeric" }) + " " + now.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" });
+  const now    = new Date();
+  const dateStr= now.toLocaleDateString("es", { day:"2-digit", month:"short", year:"numeric" }) + " " + now.toLocaleTimeString("es", { hour:"2-digit", minute:"2-digit" });
   it.sessions.push({ amount, note, date: dateStr, before: prev, after: it.progress });
   it.updatedAt = now.toISOString();
   render();
@@ -783,7 +783,7 @@ async function _syncItem(it) {
 // ════════════════════════════════════════════════════════════════════════
 // MODAL UTILS
 // ════════════════════════════════════════════════════════════════════════
-function openModal(id) { $(id).classList.add("open"); }
+function openModal(id)  { $(id).classList.add("open");    }
 function closeModal(id) { $(id).classList.remove("open"); }
 
 document.querySelectorAll(".modal-overlay").forEach((ov) => {
@@ -793,7 +793,7 @@ document.querySelectorAll("[data-close]").forEach((btn) => {
   btn.addEventListener("click", () => closeModal(btn.dataset.close));
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") ["modal-cat", "modal-item", "modal-del-cat"].forEach((id) => { if ($(id).classList.contains("open")) closeModal(id); });
+  if (e.key === "Escape") ["modal-cat","modal-item","modal-del-cat"].forEach((id) => { if ($(id).classList.contains("open")) closeModal(id); });
 });
 
 // ════════════════════════════════════════════════════════════════════════
@@ -828,7 +828,7 @@ function buildColorPicker() {
   CAT_COLORS.forEach((col) => {
     const el = document.createElement("div");
     el.className = "color-opt" + (col === state.catColor ? " selected" : "");
-    el.style.background = col;
+    el.style.background  = col;
     el.style.borderColor = col === state.catColor ? "white" : col + "44";
     el.addEventListener("click", () => {
       state.catColor = col;
@@ -845,10 +845,10 @@ function buildPresetSelector() {
   wrap.innerHTML = "";
   Object.entries(PRESET_COLS).forEach(([key, preset]) => {
     const btn = document.createElement("button");
-    btn.className = "preset-btn" + (key === state.catPreset ? " active" : "");
-    btn.textContent = preset.label;
+    btn.className  = "preset-btn" + (key === state.catPreset ? " active" : "");
+    btn.textContent= preset.label;
     btn.addEventListener("click", () => {
-      state.catPreset = key;
+      state.catPreset  = key;
       state.presetCols = preset.cols.map((c) => ({ ...c }));
       wrap.querySelectorAll(".preset-btn").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
@@ -888,7 +888,7 @@ function renderPresetCols() {
 // ── Custom cols builder (columnas extra añadidas por el usuario) ──────────────
 function renderColBuilder() {
   const builder = $("col-builder");
-  const hint = $("no-cols-hint");
+  const hint    = $("no-cols-hint");
   if (!state.customCols.length) {
     builder.innerHTML = "";
     builder.appendChild(hint);
@@ -901,21 +901,21 @@ function renderColBuilder() {
     row.className = "col-row";
     row.innerHTML = `
       <div style="display:flex;align-items:center;gap:8px;min-width:0">
-        <span style="font-size:9px;color:rgba(212,255,230,.25);font-family:'Orbitron',monospace;flex-shrink:0">${String(i + 1).padStart(2, "0")}</span>
+        <span style="font-size:9px;color:rgba(212,255,230,.25);font-family:'Orbitron',monospace;flex-shrink:0">${String(i+1).padStart(2,"0")}</span>
         <input class="col-label-input" placeholder="Nombre de columna" value="${col.label}" style="flex:1;min-width:0">
       </div>
       <select class="col-type-select f-select" style="padding:6px 8px;font-size:11px">
-        ${Object.entries(COL_TYPES).map(([k, v]) => `<option value="${k}"${col.type === k ? " selected" : ""}>${v.label}</option>`).join("")}
+        ${Object.entries(COL_TYPES).map(([k,v]) => `<option value="${k}"${col.type===k?" selected":""}>${v.label}</option>`).join("")}
       </select>
       <label class="col-required-toggle">
-        <input type="checkbox" class="col-req-check"${col.required ? " checked" : ""}>
+        <input type="checkbox" class="col-req-check"${col.required?" checked":""}>
         <span>Req.</span>
       </label>
       <button class="col-del-btn" data-idx="${i}">✕</button>`;
-    row.querySelector(".col-label-input").addEventListener("input", (e) => { state.customCols[i].label = e.target.value; state.customCols[i].key = slugify(e.target.value) || `col_${i + 1}`; });
+    row.querySelector(".col-label-input").addEventListener("input",  (e) => { state.customCols[i].label = e.target.value; state.customCols[i].key = slugify(e.target.value) || `col_${i+1}`; });
     row.querySelector(".col-type-select").addEventListener("change", (e) => { state.customCols[i].type = e.target.value; });
-    row.querySelector(".col-req-check").addEventListener("change", (e) => { state.customCols[i].required = e.target.checked; });
-    row.querySelector(".col-del-btn").addEventListener("click", () => { state.customCols.splice(i, 1); renderColBuilder(); });
+    row.querySelector(".col-req-check").addEventListener("change",   (e) => { state.customCols[i].required = e.target.checked; });
+    row.querySelector(".col-del-btn").addEventListener("click", () => { state.customCols.splice(i,1); renderColBuilder(); });
     builder.appendChild(row);
   });
 }
@@ -927,18 +927,18 @@ function buildBaseCols() {
   </tr></thead><tbody>${BASE_COLS.map((c) => `<tr>
     <td class="base-col-name">${c.label}</td>
     <td style="font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(212,255,230,.4)">${c.key}</td>
-    <td><span class="base-col-type ${COL_TYPES[c.type]?.badge || "type-auto"}">${COL_TYPES[c.type]?.label || "Auto"}</span></td>
+    <td><span class="base-col-type ${COL_TYPES[c.type]?.badge||"type-auto"}">${COL_TYPES[c.type]?.label||"Auto"}</span></td>
     <td class="base-col-desc">${c.desc}</td>
     <td class="base-col-lock">🔒</td>
   </tr>`).join("")}</tbody>`;
 }
 
 function buildSchemaPreview() {
-  const wrap = $("schema-preview-wrap");
-  const activePre = state.presetCols.filter((c) => c.on);
+  const wrap    = $("schema-preview-wrap");
+  const activePre= state.presetCols.filter((c) => c.on);
   const allCols = [
     ...BASE_COLS.map((c) => ({ ...c, origin: "sys" })),
-    ...activePre.map((c) => ({ ...c, origin: "preset" })),
+    ...activePre.map((c)  => ({ ...c, origin: "preset" })),
     ...state.customCols.map((c) => ({ ...c, origin: "custom" })),
   ];
   wrap.innerHTML = `
@@ -946,10 +946,10 @@ function buildSchemaPreview() {
     <div style="overflow-x:auto">
       <table class="sp-table">
         <thead><tr>${allCols.map((c) => `
-          <th class="${c.origin === "sys" ? "sys" : c.origin === "preset" ? "preset" : "custom"}${c.required ? " req" : ""}">
-            ${c.label}<span class="type-badge ${COL_TYPES[c.type]?.badge || "type-auto"}">${COL_TYPES[c.type]?.label || "Auto"}</span>
+          <th class="${c.origin === "sys" ? "sys" : c.origin === "preset" ? "preset" : "custom"}${c.required?" req":""}">
+            ${c.label}<span class="type-badge ${COL_TYPES[c.type]?.badge||"type-auto"}">${COL_TYPES[c.type]?.label||"Auto"}</span>
           </th>`).join("")}</tr></thead>
-        <tbody><tr>${allCols.map((c) => `<td>${COL_TYPES[c.type]?.example || "..."}</td>`).join("")}</tr></tbody>
+        <tbody><tr>${allCols.map((c) => `<td>${COL_TYPES[c.type]?.example||"..."}</td>`).join("")}</tr></tbody>
       </table>
     </div>
     <div style="padding:8px 14px;font-size:9px;color:rgba(212,255,230,.25);border-top:1px solid #1e3028;font-family:'Share Tech Mono',monospace">
@@ -959,23 +959,23 @@ function buildSchemaPreview() {
 }
 
 $("btn-add-col").addEventListener("click", () => {
-  state.customCols.push({ id: uid(), label: "", key: `col_${state.customCols.length + 1}`, type: "text", required: false });
+  state.customCols.push({ id: uid(), label: "", key: `col_${state.customCols.length+1}`, type: "text", required: false });
   renderColBuilder();
   $("no-cols-hint").style.display = "none";
 });
 
 function openCatModal(cat = null, startTab = "tab-info") {
-  state.editingCat = cat;
-  state.catIcon = cat?.icon || CAT_ICONS[0];
-  state.catColor = cat?.color || CAT_COLORS[0];
-  state.catPreset = "custom";
-  state.presetCols = [];
-  state.customCols = cat?.columns ? cat.columns.map((c) => ({ ...c })) : [];
+  state.editingCat  = cat;
+  state.catIcon     = cat?.icon  || CAT_ICONS[0];
+  state.catColor    = cat?.color || CAT_COLORS[0];
+  state.catPreset   = "custom";
+  state.presetCols  = [];
+  state.customCols  = cat?.columns ? cat.columns.map((c) => ({ ...c })) : [];
 
-  $("modal-cat-title").textContent = cat ? "✎ EDITAR CATEGORÍA" : "+ NUEVA CATEGORÍA";
-  $("btn-save-cat").textContent = cat ? "Guardar cambios" : "Crear en Google Sheets";
-  $("cat-name").value = cat?.name || "";
-  $("cat-desc").value = cat?.desc || "";
+  $("modal-cat-title").textContent  = cat ? "✎ EDITAR CATEGORÍA" : "+ NUEVA CATEGORÍA";
+  $("btn-save-cat").textContent     = cat ? "Guardar cambios"    : "Crear en Google Sheets";
+  $("cat-name").value               = cat?.name || "";
+  $("cat-desc").value               = cat?.desc || "";
 
   buildIconPicker();
   buildColorPicker();
@@ -997,8 +997,8 @@ $("btn-save-cat").addEventListener("click", async () => {
   // Construir lista de encabezados para Google Sheets:
   // BASE_COLS + presetCols activas + customCols con label
   const activePreset = state.presetCols.filter((c) => c.on);
-  const extraCols = state.customCols.filter((c) => c.label.trim());
-  const allColDefs = [
+  const extraCols    = state.customCols.filter((c) => c.label.trim());
+  const allColDefs   = [
     ...activePreset,
     ...extraCols.map((c) => ({ ...c, key: slugify(c.label) || c.key })),
   ];
@@ -1006,7 +1006,7 @@ $("btn-save-cat").addEventListener("click", async () => {
   // sheetName codifica nombre + icono + color para recuperarlos al leer
   const sheetName = `${name}||${state.catIcon}||${state.catColor}`;
   // Headers para Google Sheets: BASE_COLS + columnas extras
-  const headers = [
+  const headers   = [
     ...BASE_COLS.map((c) => c.label),
     ...allColDefs.map((c) => c.label),
   ];
@@ -1016,9 +1016,9 @@ $("btn-save-cat").addEventListener("click", async () => {
     const data = {
       ...state.editingCat,
       name,
-      desc: $("cat-desc").value.trim(),
-      icon: state.catIcon,
-      color: state.catColor,
+      desc:    $("cat-desc").value.trim(),
+      icon:    state.catIcon,
+      color:   state.catColor,
       columns: allColDefs,
     };
     const idx = cats.findIndex((c) => c.id === data.id);
@@ -1030,7 +1030,7 @@ $("btn-save-cat").addEventListener("click", async () => {
 
   // ── Crear nueva hoja en Google Sheets ─────────────────────────────────
   const btn = $("btn-save-cat");
-  btn.disabled = true;
+  btn.disabled    = true;
   btn.textContent = "Creando…";
   setSyncing(true);
 
@@ -1038,12 +1038,12 @@ $("btn-save-cat").addEventListener("click", async () => {
     await createCategory(sheetName, headers);
     // Añadir a estado local
     cats.push({
-      id: uid(),
+      id:        uid(),
       name,
-      desc: $("cat-desc").value.trim(),
-      icon: state.catIcon,
-      color: state.catColor,
-      columns: allColDefs,
+      desc:      $("cat-desc").value.trim(),
+      icon:      state.catIcon,
+      color:     state.catColor,
+      columns:   allColDefs,
       sheetName,
     });
     setSyncing(false);
@@ -1069,15 +1069,15 @@ let delCatTarget = null;
 function openDelCatModal(cat) {
   delCatTarget = cat;
   const cnt = items.filter((i) => i.catId === cat.id).length;
-  $("del-cat-msg").innerHTML = `Eliminarás la categoría <strong>${cat.name}</strong> y sus ${cnt} elemento${cnt !== 1 ? "s" : ""}.<br><br><span class="danger-text">Esta acción no se puede deshacer.</span>`;
+  $("del-cat-msg").innerHTML = `Eliminarás la categoría <strong>${cat.name}</strong> y sus ${cnt} elemento${cnt!==1?"s":""}.<br><br><span class="danger-text">Esta acción no se puede deshacer.</span>`;
   openModal("modal-del-cat");
 }
 $("btn-confirm-del-cat").addEventListener("click", () => {
   if (!delCatTarget) return;
   const id = delCatTarget.id;
-  cats = cats.filter((c) => c.id !== id);
+  cats  = cats.filter((c)  => c.id !== id);
   items = items.filter((i) => i.catId !== id);
-  if (state.selCat === id) state.selCat = "__all__";
+  if (state.selCat  === id) state.selCat  = "__all__";
   if (state.selItem && !items.find((i) => i.id === state.selItem)) state.selItem = null;
   delCatTarget = null;
   closeModal("modal-del-cat");
@@ -1095,26 +1095,26 @@ function renderSourcesList() {
     const row = document.createElement("div");
     row.className = "source-row";
     row.innerHTML = `
-      <span class="source-row-num">${String(i + 1).padStart(2, "0")}</span>
+      <span class="source-row-num">${String(i+1).padStart(2,"0")}</span>
       <input class="source-name-input" placeholder="Nombre (Netflix, Físico…)" value="${src.name}">
       <span class="source-sep">│</span>
       <input class="source-url-input" placeholder="URL opcional" value="${src.url}">
       ${state.modalSources.length > 1 ? `<button class="src-del-btn" data-idx="${i}">✕</button>` : ""}`;
     row.querySelector(".source-name-input").addEventListener("input", (e) => { state.modalSources[i].name = e.target.value; });
-    row.querySelector(".source-url-input").addEventListener("input", (e) => { state.modalSources[i].url = e.target.value; });
-    row.querySelector(".src-del-btn")?.addEventListener("click", () => { state.modalSources.splice(i, 1); renderSourcesList(); });
+    row.querySelector(".source-url-input").addEventListener("input",  (e) => { state.modalSources[i].url  = e.target.value; });
+    row.querySelector(".src-del-btn")?.addEventListener("click", () => { state.modalSources.splice(i,1); renderSourcesList(); });
     list.appendChild(row);
   });
 }
 $("btn-add-source").addEventListener("click", () => { state.modalSources.push({ id: uid(), name: "", url: "" }); renderSourcesList(); });
 
 function renderCustomItemFields(catId) {
-  const cat = catById(catId);
+  const cat  = catById(catId);
   const area = $("item-custom-fields");
   area.innerHTML = "";
   if (!cat?.columns?.length) return;
 
-  const sep = document.createElement("div"); sep.className = "section-sep"; sep.style.margin = "4px 0 8px"; area.appendChild(sep);
+  const sep    = document.createElement("div"); sep.className = "section-sep"; sep.style.margin = "4px 0 8px"; area.appendChild(sep);
   const header = document.createElement("div");
   header.style.cssText = "font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(57,255,138,.5);margin-bottom:12px;font-family:Share Tech Mono,monospace";
   header.textContent = "Campos personalizados — " + cat.name;
@@ -1122,16 +1122,16 @@ function renderCustomItemFields(catId) {
 
   cat.columns.forEach((col) => {
     const wrap = document.createElement("div");
-    const val = state.modalCustomValues[col.key] ?? "";
+    const val  = state.modalCustomValues[col.key] ?? "";
     let inputHtml = "";
     if (col.type === "bool") {
-      inputHtml = `<div style="display:flex;gap:10px;margin-top:4px">${["Sí", "No"].map((opt) => `<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input type="radio" name="cf_${col.key}" value="${opt}" ${val === opt ? "checked" : ""} style="accent-color:#39ff8a"> ${opt}</label>`).join("")}</div>`;
+      inputHtml = `<div style="display:flex;gap:10px;margin-top:4px">${["Sí","No"].map((opt) => `<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input type="radio" name="cf_${col.key}" value="${opt}" ${val===opt?"checked":""} style="accent-color:#39ff8a"> ${opt}</label>`).join("")}</div>`;
     } else if (col.type === "date") {
       inputHtml = `<input class="f-input" type="date" id="cf_${col.key}" value="${val}" style="color-scheme:dark">`;
     } else {
-      inputHtml = `<input class="f-input" id="cf_${col.key}" placeholder="${COL_TYPES[col.type]?.example || ""}" value="${val}">`;
+      inputHtml = `<input class="f-input" id="cf_${col.key}" placeholder="${COL_TYPES[col.type]?.example||""}" value="${val}">`;
     }
-    wrap.innerHTML = `<label class="f-label">${col.label}${col.required ? ` <span style="color:#ff4d6d">*</span>` : ""}<span class="type-badge ${COL_TYPES[col.type]?.badge}">${COL_TYPES[col.type]?.label}</span></label>${inputHtml}`;
+    wrap.innerHTML = `<label class="f-label">${col.label}${col.required?` <span style="color:#ff4d6d">*</span>`:""}<span class="type-badge ${COL_TYPES[col.type]?.badge}">${COL_TYPES[col.type]?.label}</span></label>${inputHtml}`;
     const bind = () => {
       if (col.type === "bool") { const checked = wrap.querySelector(`input[name="cf_${col.key}"]:checked`); state.modalCustomValues[col.key] = checked ? checked.value : ""; }
       else { state.modalCustomValues[col.key] = wrap.querySelector(`#cf_${col.key}`)?.value || ""; }
@@ -1147,47 +1147,47 @@ function getItemUnit() {
   return preset || "cap";
 }
 function updateUnitEcho() {
-  const unit = getItemUnit();
+  const unit  = getItemUnit();
   const total = parseInt($("item-total")?.value) || 0;
-  const prog = parseInt($("item-progress")?.value) || 0;
-  if ($("item-unit-echo")) $("item-unit-echo").textContent = unit;
-  if ($("item-step-unit-echo")) $("item-step-unit-echo").textContent = unit;
-  if ($("item-total-echo")) $("item-total-echo").textContent = total || "?";
-  if ($("item-pct-echo")) $("item-pct-echo").textContent = total > 0 ? `${pct(prog, total)}%` : "";
+  const prog  = parseInt($("item-progress")?.value) || 0;
+  if ($("item-unit-echo"))       $("item-unit-echo").textContent  = unit;
+  if ($("item-step-unit-echo"))  $("item-step-unit-echo").textContent = unit;
+  if ($("item-total-echo"))      $("item-total-echo").textContent = total || "?";
+  if ($("item-pct-echo"))        $("item-pct-echo").textContent   = total > 0 ? `${pct(prog,total)}%` : "";
 }
 $("item-unit-preset")?.addEventListener("change", () => { $("item-unit-custom-wrap").style.display = $("item-unit-preset").value === "custom" ? "block" : "none"; updateUnitEcho(); });
 $("item-unit-custom")?.addEventListener("input", updateUnitEcho);
-$("item-total")?.addEventListener("input", updateUnitEcho);
+$("item-total")?.addEventListener("input",    updateUnitEcho);
 $("item-progress")?.addEventListener("input", updateUnitEcho);
-$("item-step")?.addEventListener("input", updateUnitEcho);
+$("item-step")?.addEventListener("input",     updateUnitEcho);
 
 function openItemModal(item = null) {
-  state.editingItem = item;
-  state.modalStatus = item?.status || "pendiente";
+  state.editingItem       = item;
+  state.modalStatus       = item?.status || "pendiente";
   state.modalCustomValues = item?.customData ? { ...item.customData } : {};
 
   $("modal-item-title").textContent = item ? "✎ EDITAR ELEMENTO" : "+ NUEVO ELEMENTO";
-  $("btn-save-item").textContent = item ? "Guardar cambios" : "Crear elemento";
+  $("btn-save-item").textContent    = item ? "Guardar cambios"   : "Crear elemento";
 
   const hasCats = cats.length > 0;
-  $("item-no-cats").style.display = hasCats ? "none" : "block";
-  $("item-form-fields").style.display = hasCats ? "contents" : "none";
-  $("btn-save-item").style.display = hasCats ? "" : "none";
+  $("item-no-cats").style.display      = hasCats ? "none"     : "block";
+  $("item-form-fields").style.display  = hasCats ? "contents" : "none";
+  $("btn-save-item").style.display     = hasCats ? ""         : "none";
 
   if (hasCats) {
     const sel = $("item-cat");
     sel.innerHTML = cats.map((c) => `<option value="${c.id}">${c.icon} ${c.name}</option>`).join("");
     if (item) sel.value = item.catId;
 
-    $("item-title").value = item?.title || "";
-    $("item-author").value = item?.author || "";
+    $("item-title").value    = item?.title    || "";
+    $("item-author").value   = item?.author   || "";
     $("item-progress").value = item?.progress != null ? item.progress : "";
-    $("item-total").value = item?.total != null ? item.total : "";
-    $("item-step").value = item?.step || "";
+    $("item-total").value    = item?.total    != null ? item.total    : "";
+    $("item-step").value     = item?.step     || "";
 
-    const unitPresets = ["cap", "pág", "ep", "min", "h", "vol"];
-    const unitVal = item?.unit || "cap";
-    const presetSel = $("item-unit-preset");
+    const unitPresets = ["cap","pág","ep","min","h","vol"];
+    const unitVal     = item?.unit || "cap";
+    const presetSel   = $("item-unit-preset");
     if (unitPresets.includes(unitVal)) { presetSel.value = unitVal; $("item-unit-custom-wrap").style.display = "none"; }
     else { presetSel.value = "custom"; $("item-unit-custom-wrap").style.display = "block"; $("item-unit-custom").value = unitVal; }
     updateUnitEcho();
@@ -1224,24 +1224,24 @@ $("btn-save-item").addEventListener("click", async () => {
   if (!title || !catId) { $("item-title").focus(); return; }
 
   const cat = catById(catId);
-  const now = new Date().toISOString();
+  const now  = new Date().toISOString();
   const data = {
-    id: state.editingItem?.id || uid(),
+    id:         state.editingItem?.id || uid(),
     catId,
     title,
-    author: $("item-author").value.trim(),
-    status: state.modalStatus,
-    progress: parseInt($("item-progress").value) || 0,
-    total: parseInt($("item-total").value) || 0,
-    unit: getItemUnit(),
-    step: parseInt($("item-step").value) || 1,
-    score: parseInt($("item-score").value) || 0,
-    notes: $("item-notes").value.trim(),
-    sources: state.modalSources.filter((s) => s.name.trim()),
+    author:     $("item-author").value.trim(),
+    status:     state.modalStatus,
+    progress:   parseInt($("item-progress").value) || 0,
+    total:      parseInt($("item-total").value)    || 0,
+    unit:       getItemUnit(),
+    step:       parseInt($("item-step").value)     || 1,
+    score:      parseInt($("item-score").value)    || 0,
+    notes:      $("item-notes").value.trim(),
+    sources:    state.modalSources.filter((s) => s.name.trim()),
     customData: { ...state.modalCustomValues },
-    sessions: state.editingItem?.sessions || [],
-    createdAt: state.editingItem?.createdAt || now,
-    updatedAt: now,
+    sessions:   state.editingItem?.sessions || [],
+    createdAt:  state.editingItem?.createdAt || now,
+    updatedAt:  now,
   };
 
   // Optimistic update
@@ -1260,7 +1260,7 @@ $("btn-save-item").addEventListener("click", async () => {
   setSyncing(true);
   try {
     if (state.editingItem) { await updateItem(cat.sheetName, data.id, row); }
-    else { await insertItem(cat.sheetName, row); }
+    else                   { await insertItem(cat.sheetName, row); }
     setSyncing(false);
   } catch (err) {
     setSyncing(false, err.message);
