@@ -5,12 +5,15 @@
 // Cuando el proxy esté listo, solo cambia PROXY_BASE_URL.
 // ════════════════════════════════════════════════════════════════════════
 
-const PROXY_BASE_URL = "https://proxy-vaultmedia.onrender.com"; // ← reemplazar cuando esté listo
+const PROXY_BASE_URL = "https://proxy-vaultmedia.onrender.com";
 
 // ── Utilidad interna ─────────────────────────────────────────────────────────
 async function _request(method, path, body = null) {
   const opts = {
     method,
+    credentials: "include", // ← necesario para Basic Auth cross-origin:
+    //   hace que el navegador envíe el header
+    //   Authorization en cada petición
     headers: { "Content-Type": "application/json" },
   };
   if (body) opts.body = JSON.stringify(body);
