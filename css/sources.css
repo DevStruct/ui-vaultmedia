@@ -1,0 +1,88 @@
+/* ── SOURCES ──────────────────────────────────────────────────────────── */
+.sources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.source-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+
+.source-row-num {
+  font-size: var(--fs-2xs);
+  color: var(--text-3);
+  font-weight: 700;
+  min-width: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.source-row input {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: var(--fs-sm);
+  outline: none;
+  min-width: 0;
+}
+
+.source-row input::placeholder {
+  color: var(--text-4);
+}
+
+.source-name-input {
+  flex: 1;
+}
+
+.src-del-btn {
+  background: none;
+  border: 1px solid var(--danger-line);
+  color: var(--danger);
+  font-size: var(--fs-sm);
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--dur-150);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.src-del-btn .ms {
+  font-size: 14px;
+}
+
+.src-del-btn:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.icon-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-3);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  transition: all var(--dur-150);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+

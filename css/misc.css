@@ -1,0 +1,43 @@
+/* ── MISC ─────────────────────────────────────────────────────────────── */
+.warning-text {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+.warning-text strong {
+  color: var(--text);
+}
+
+.danger-text {
+  color: var(--danger);
+}
+
+.no-cats-msg {
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  line-height: 1.8;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.no-cats-msg strong {
+  color: var(--warning);
+}
+
+.section-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.cf-header {
+  font-size: var(--fs-2xs);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+

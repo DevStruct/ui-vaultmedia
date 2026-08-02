@@ -1,0 +1,127 @@
+/* ── RESPONSIVE (<768px) ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    height: 100dvh;
+  }
+
+  #header {
+    flex-wrap: wrap;
+    padding: 0 12px;
+    gap: 8px;
+    height: auto;
+    min-height: 52px;
+  }
+
+  #header .vdiv,
+  #clock {
+    display: none;
+  }
+
+  #status-nav {
+    order: 10;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .sync-indicator .sync-label {
+    display: none;
+  }
+
+  .hdr-stat {
+    display: none;
+  }
+
+  #sidebar {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 12px;
+    flex: none;
+  }
+
+  #sidebar .sb-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+
+  #sidebar .sb-label,
+  #sidebar .sb-divider,
+  #sidebar #dist-section,
+  #sidebar #btn-new-cat {
+    display: none;
+  }
+
+  #sb-all {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+  }
+
+  #sb-all.active {
+    border-color: var(--accent-line);
+  }
+
+  #cats-list {
+    display: flex;
+    gap: 6px;
+  }
+
+  #cats-list .sb-item {
+    border-left: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+  }
+
+  #cats-list .sb-item.active {
+    border-color: var(--cc, var(--accent));
+  }
+
+  #cats-list .sb-item .sb-cat-actions {
+    display: none;
+  }
+
+  #detail {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    background: var(--bg);
+    border-left: none;
+    transform: translateX(100%);
+    transition: transform var(--dur-300) var(--ease-out);
+  }
+
+  #detail.mobile-open {
+    transform: translateX(0);
+  }
+
+  .f-row {
+    grid-template-columns: 1fr;
+  }
+
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .col-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .col-row .col-type-select,
+  .col-row .col-required-toggle,
+  .col-row .col-del-btn {
+    grid-row: 2;
+  }
+}
+
+
+

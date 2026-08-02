@@ -1,0 +1,266 @@
+/* ── TABLE DESIGNER ───────────────────────────────────────────────────── */
+.schema-info {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  line-height: 1.7;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.schema-info strong {
+  color: var(--info);
+}
+
+.base-cols-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.base-cols-table th {
+  font-size: var(--fs-2xs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 7px 10px;
+  text-align: left;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.base-cols-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  vertical-align: middle;
+}
+
+.base-col-name {
+  font-weight: 700;
+  color: var(--info);
+  font-size: var(--fs-xs);
+}
+
+.base-col-key {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.base-col-type {
+  font-size: var(--fs-2xs);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+}
+
+.base-col-desc {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.base-col-lock {
+  font-size: var(--fs-sm);
+  color: var(--text-4);
+}
+
+.col-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.col-row {
+  display: grid;
+  grid-template-columns: 1fr 110px 80px 32px;
+  gap: 8px;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  animation: fadeUp var(--dur-200) var(--ease-out) both;
+}
+
+.col-num {
+  font-size: var(--fs-2xs);
+  color: var(--text-3);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.col-row input,
+.col-row select {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: var(--fs-sm);
+  outline: none;
+  width: 100%;
+}
+
+.col-row input::placeholder {
+  color: var(--text-4);
+}
+
+.col-row select option {
+  background: var(--surface-1);
+}
+
+.col-del-btn {
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: 1px solid var(--danger-line);
+  color: var(--danger);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--dur-150);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-del-btn .ms {
+  font-size: 14px;
+}
+
+.col-del-btn:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.col-required-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+.col-required-toggle input {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+}
+
+.no-cols-hint {
+  font-size: var(--fs-xs);
+  color: var(--text-4);
+  padding: 10px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+/* ── SCHEMA PREVIEW ───────────────────────────────────────────────────── */
+.schema-preview {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.sp-head {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--warning);
+  letter-spacing: .06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.sp-table th {
+  padding: 6px 10px;
+  background: var(--surface-1);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: var(--fs-2xs);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.sp-table th.sys {
+  color: var(--info);
+}
+
+.sp-table th.preset {
+  color: var(--purple);
+}
+
+.sp-table th.custom {
+  color: var(--accent);
+}
+
+.sp-table th.req::after {
+  content: " *";
+  color: var(--danger);
+}
+
+.sp-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-4);
+  font-style: italic;
+  font-size: var(--fs-xs);
+}
+
+/* ── TYPE BADGES ──────────────────────────────────────────────────────── */
+.type-badge {
+  font-size: var(--fs-2xs);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: 5px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.type-text {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.type-number {
+  background: var(--info-soft);
+  color: var(--info);
+}
+
+.type-date {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.type-bool {
+  background: color-mix(in srgb, var(--purple) 14%, transparent);
+  color: var(--purple);
+}
+
+.type-url {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.type-select {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.type-auto {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
