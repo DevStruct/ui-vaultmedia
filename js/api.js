@@ -4,22 +4,42 @@
 // Todas las operaciones con Google Sheets pasan por aquí.
 // Cuando el proxy esté listo, solo cambia PROXY_BASE_URL.
 // ════════════════════════════════════════════════════════════════════════
+import { getToken } from "./session.js";
 
-const PROXY_BASE_URL = "https://proxy-vaultmedia.onrender.com";
+export const PROXY_BASE_URL = "https://proxy-vaultmedia.onrender.com";
+
+// ── Estado de auth en vivo (lo enlaza main.js) ────────────────────────────────
+let _onUnauthorized = null;
+
+/**
+ * Registra el handler que se ejecuta ante un 401 (ej: mostrar el login).
+ * @param {Function} fn
+ */
+export function setUnauthorizedHandler(fn) {
+  _onUnauthorized = fn;
+}
+
+function triggerUnauthorized() {
+  if (_onUnauthorized) _onUnauthorized();
+}
 
 // ── Utilidad interna ─────────────────────────────────────────────────────────
 async function _request(method, path, body = null) {
-  const opts = {
-    method,
-    credentials: "include", // ← necesario para Basic Auth cross-origin:
-    //   hace que el navegador envíe el header
-    //   Authorization en cada petición
-    headers: { "Content-Type": "application/json" },
-  };
+  const headers = { "Content-Type": "application/json" };
+  const token = getToken();
+  if (token) headers["Authorization"] = `Bearer ${token}`;
+
+  const opts = { method, headers };
   if (body) opts.body = JSON.stringify(body);
 
   const res = await fetch(`${PROXY_BASE_URL}${path}`, opts);
+
+  if (res.status === 401) {
+    triggerUnauthorized();
+    throw new Error("Autenticación requerida");
+  }
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
   const data = await res.json();
   if (!data.success) throw new Error(data.error || "Error desconocido");
   return data;

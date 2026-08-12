@@ -70,6 +70,10 @@
           <span class="ms" aria-hidden="true">add</span>
           ELEMENTO
         </button>
+        <button class="btn btn-ghost btn-sm" id="btn-logout" title="Cerrar sesión" hidden>
+          <span class="ms" aria-hidden="true">logout</span>
+          SALIR
+        </button>
       </div>
     </header>
 
@@ -390,6 +394,51 @@
       <div class="modal-footer">
         <button class="btn btn-ghost" data-close="modal-del-cat">Cancelar</button>
         <button class="btn btn-danger" id="btn-confirm-del-cat">Eliminar todo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ OVERLAY: LOGIN OTP ═════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="login-overlay">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <span class="modal-title">
+          <span class="ms" aria-hidden="true">lock</span>
+          ACCESO SEGURO
+        </span>
+      </div>
+      <div class="modal-body">
+        <p class="warning-text">
+          Ingresá tu clave y el código de 6 dígitos de tu app de autenticación
+          (Google Authenticator).
+        </p>
+        <div>
+          <label class="f-label" for="login-pass">Clave</label>
+          <input
+            class="f-input"
+            type="password"
+            id="login-pass"
+            autocomplete="current-password"
+            placeholder="••••••••••"
+          />
+        </div>
+        <div>
+          <label class="f-label" for="login-otp">Código de verificación</label>
+          <input
+            class="f-input"
+            type="text"
+            inputmode="numeric"
+            id="login-otp"
+            maxlength="6"
+            autocomplete="one-time-code"
+            placeholder="000000"
+          />
+        </div>
+        <p class="danger-text" id="login-error" hidden></p>
+        <button class="btn btn-primary" id="btn-login" style="width: 100%">
+          <span class="ms" aria-hidden="true">login</span>
+          ENTRAR
+        </button>
       </div>
     </div>
   </div>

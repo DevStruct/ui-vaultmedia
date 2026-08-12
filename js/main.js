@@ -9,5 +9,9 @@ import "./modals/cat.js";
 import "./modals/del-cat.js";
 import "./modals/item.js";
 import { loadAll } from "./data.js";
+import { setUnauthorizedHandler } from "./api.js";
+import { initAuth, ensureAuthed } from "./auth.js";
 
-loadAll();
+setUnauthorizedHandler(ensureAuthed);
+initAuth(() => loadAll());
+if (ensureAuthed()) loadAll();
