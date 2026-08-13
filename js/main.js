@@ -10,8 +10,8 @@ import "./modals/del-cat.js";
 import "./modals/item.js";
 import { loadAll } from "./data.js";
 import { setUnauthorizedHandler } from "./api.js";
-import { initAuth, ensureAuthed } from "./auth.js";
+import { initAuth, ensureAuthed, forceLogin } from "./auth.js";
 
-setUnauthorizedHandler(ensureAuthed);
+setUnauthorizedHandler(forceLogin);
 initAuth(() => loadAll());
 if (ensureAuthed()) loadAll();

@@ -105,3 +105,11 @@ export function ensureAuthed() {
   showLogin();
   return false;
 }
+
+/**
+ * Fuerza el re-login: limpia el token y muestra la pantalla de acceso.
+ * Se enlaza como handler de 401 (sesión expirada o perdida tras reinicio).
+ */
+export function forceLogin() {
+  showLogin();
+}
