@@ -1,5 +1,5 @@
 // ════════════════════════════════════════════════════════════════════════
-// AUTH — flujo de login OTP (clave + código de Google Authenticator)
+// AUTH — flujo de login OTP (código de Google Authenticator)
 // Pantalla de acceso, llamado a POST /auth y cierre de sesión.
 // ════════════════════════════════════════════════════════════════════════
 import { $ } from "./helpers.js";
@@ -15,8 +15,8 @@ function showLogin() {
   const overlay = $("login-overlay");
   if (!overlay) return;
   overlay.classList.add("open");
-  const pass = $("login-pass");
-  if (pass) pass.focus();
+  const otp = $("login-otp");
+  if (otp) otp.focus();
 }
 
 function hideLogin() {
@@ -34,18 +34,16 @@ function setError(msg) {
 }
 
 async function doLogin() {
-  const pass = $("login-pass")?.value ?? "";
   const otp = $("login-otp")?.value.trim() ?? "";
   setError("");
 
-  if (!pass) return setError("Ingresá tu clave.");
   if (!/^\d{6}$/.test(otp)) return setError("El código debe tener 6 dígitos.");
 
   try {
     const res = await fetch(`${PROXY_BASE_URL}/auth`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pass, otp }),
+      body: JSON.stringify({ otp }),
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.success) {
@@ -53,7 +51,6 @@ async function doLogin() {
       return;
     }
     setToken(data.token);
-    if ($("login-pass")) $("login-pass").value = "";
     if ($("login-otp")) $("login-otp").value = "";
     hideLogin();
     if (onSuccess) onSuccess();
@@ -84,10 +81,8 @@ export function initAuth(onSuccessCb) {
   onSuccess = onSuccessCb;
   const btn = $("btn-login");
   if (btn) btn.addEventListener("click", doLogin);
-  for (const id of ["login-pass", "login-otp"]) {
-    const el = $(id);
-    if (el) el.addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
-  }
+  const otpEl = $("login-otp");
+  if (otpEl) otpEl.addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
   const logoutBtn = $("btn-logout");
   if (logoutBtn) logoutBtn.addEventListener("click", doLogout);
 }

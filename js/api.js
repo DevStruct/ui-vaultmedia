@@ -4,7 +4,7 @@
 // Todas las operaciones con Google Sheets pasan por aquí.
 // Cuando el proxy esté listo, solo cambia PROXY_BASE_URL.
 // ════════════════════════════════════════════════════════════════════════
-import { getToken } from "./session.js";
+import { getToken, isTokenValid } from "./session.js";
 
 export const PROXY_BASE_URL = "https://proxy-vaultmedia.onrender.com";
 
@@ -25,6 +25,11 @@ function triggerUnauthorized() {
 
 // ── Utilidad interna ─────────────────────────────────────────────────────────
 async function _request(method, path, body = null) {
+  if (!isTokenValid()) {
+    triggerUnauthorized();
+    throw new Error("Sesión expirada");
+  }
+
   const headers = { "Content-Type": "application/json" };
   const token = getToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
